@@ -35,6 +35,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios'
   ],
 
   /*
@@ -49,7 +50,11 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://localhost:3000',
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json'
+    }
   },
 
   /*
