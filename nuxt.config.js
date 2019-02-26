@@ -42,7 +42,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/auth',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
   ],
@@ -51,9 +51,23 @@ module.exports = {
   */
   axios: {
     baseURL: 'http://localhost:3000',
-    withCredentials: true,
-    headers: {
-      'Content-Type': 'application/json'
+  },
+
+  auth: {
+    token: {
+      prefix: '_token.'
+    },
+    localStorage: {
+      prefix: 'auth.'
+    },
+    strategies: {
+      api: {
+        endpoints: {
+          signup: { url: '/signup', method: 'post' },
+          login: { url: '/login', method: 'post' },
+          logout: { url: '/login', method: 'delete' },
+        },
+      }
     }
   },
 
